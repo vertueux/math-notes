@@ -1,0 +1,113 @@
+\documentclass{amsart}
+\usepackage[french]{babel}
+
+\newtheorem{theorem}{Théorème}[section]
+\newtheorem{lemma}[theorem]{Lemme}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Définition}
+\newtheorem{example}[theorem]{Exemple}
+\newtheorem{xca}[theorem]{Exercice}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remarque}
+
+\numberwithin{equation}{section}
+
+%    Absolute value notation
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+%    Blank box placeholder for figures (to avoid requiring any
+%    particular graphics capabilities for printing this document).
+\newcommand{\blankbox}[2]{%
+  \parbox{\columnwidth}{\centering
+%    Set fboxsep to 0 so that the actual size of the box will match the
+%    given measurements more closely.
+    \setlength{\fboxsep}{0pt}%
+    \fbox{\raisebox{0pt}[#2]{\hspace{#1}}}%
+  }%
+}
+
+\begin{document}
+
+\title{Suites de puissances}
+
+\author{VERTUEUX}
+
+\begin{abstract}
+    Cet article est une énonciation et démonstration de propriétés sur des suites ayant pour forme $u_{n+1}=u_n^r$ avec $u_0=k$, $k \in \mathbb{R}$, $r \in \mathbb{R^*}$.
+\end{abstract}
+
+\maketitle
+
+\begin{definition}
+    On appelle une suite de puissance une suite $u_n:\mathbb{N} \rightarrow \mathbb{R}$, $\forall n \in \mathbb{N}$, $n \mapsto u(n)$ avec $k \in \mathbb{R}$, $r \in \mathbb{R^*}$, ayant pour forme: 
+
+    \[\begin{cases} 
+        u_{n+1}=u_n^r \\
+        u_0=k
+    \end{cases}\]
+\end{definition}
+
+\begin{definition}
+    Toute suite $u_n$ étant une suite de puissance, $r$ est appelé raison de la suite.
+\end{definition}
+
+\begin{theorem}
+    Toute suite $u_n$, une suite de puissance de formule de récurrence $u_{n+1}=u_n^r$ avec $u_0=k$ peut s'écrire de la forme $u_n=k^{r^n}$, avec $k \in \mathbb{R}$, $r \in \mathbb{R^*}$.
+\end{theorem}
+
+\begin{proof}
+    À l'initialisation de la suite $u_n$, nous avons $u_0 = k$, et $u_1 = k^r$.
+
+    Par récurrence, nous savons que $u_2 = (k^r)^r$ et que $\forall n \in \mathbb{N}$:
+    
+    \[u_n = k^{\prod_{i=1}^{n}r} \iff u_n = k^{r^n}\]
+
+    Dans le cas où $r = 0$, on remarque que: 
+
+    \[\begin{cases} 
+        u_{n+1}=1 \\
+        u_0=k
+    \end{cases}\]
+
+    Et d'après la formule précédente, $u_n = k^{0^n} \implies u_0$ est indéfini.
+
+    Or, $u_0 = k$, $k \in \mathbb{N}$ d'après la formule de récurrence. Par conséquent, la suite ne peut pas être écrite avec une formule explicite lorsque $r=0$.
+
+\end{proof} 
+
+\begin{theorem}
+    Toute suite $u_n$, une suite de puissance de formule de récurrence $u_{n+1}=u_n^r$ avec $u_0=k$, et un rang $u_p$, $p \in \mathbb{N}$, peut s'exprimer par: $u_n = u_p^{r^{n-p}}$.
+\end{theorem}
+
+\begin{proof}
+    Considérons trois cas: $p<n$, $p>n$, $p=n$.
+
+    Lorsque $p<n$, on remarque qu'afin d'atteindre $p$, il suffit de multiplier par la raison $r$ selon la distance séparant $p$ et $n$, soit $n-p$:
+    
+    \[u_n = u_p^{\prod_{i=1}^{n-p}r} \iff u_n = u_p^{r^{n-p}}\]
+    
+    Lorsque $p>n \iff n<p$, de manière analogue à $p<n$, on sait que:
+
+    \[u_p = u_n^{\prod_{i=1}^{p-n}r} \iff u_p = u_n^{r^{p-n}} \iff u_n = u_p^{r^{n-p}}\]
+
+
+    Lorsque $p=n$, les termes sont de même rang $\implies u_n=u_p$. En considérant le Théorème énoncé aussitôt:
+
+    \[u_n = u_p^{r^{n-p}} \iff u_n=up^{r^0} \iff u_n=u_p, \forall r \ne 0\]
+
+    Nous retombons bien sur l'égalité avec $u_n=u_p$.
+    
+    À noter de même que dans le cas où $p=0$, on a bien: $u_n=u_0^{r^n}=k^{r^n}$.
+
+    Connaissant $u_p$ et $u_n$, on peut donc retrouver la raison $r$:
+
+    \[u_n = u_p^{r^{n-p}} \iff r=\sqrt[n-p]{\frac{\log_{u_p}(u_n)}{\log_{u_p}(u_p)}} \iff r=\sqrt[n-p]{\log_{u_p}(u_n)}\]
+
+    Cela fonctionne donc $\forall u_p \in \mathbb{R_{+}^*}\backslash\lbrace{1}\rbrace$ et $\forall u_n \in \mathbb{R_{+}^*}$.
+
+
+\end{proof}
+
+\end{document}

@@ -1,5 +1,6 @@
 \documentclass{amsart}
 \usepackage[french]{babel}
+\usepackage{tabularx}
 
 \newtheorem{theorem}{Théorème}[section]
 \newtheorem{lemma}[theorem]{Lemme}
@@ -41,7 +42,7 @@
 \maketitle
 
 \begin{definition}
-    On appelle une suite de puissance une suite $u_n:\mathbb{N} \rightarrow \mathbb{R}$, $\forall n \in \mathbb{N}$, $n \mapsto u(n)$ avec $k \in \mathbb{R}$, $r \in \mathbb{R^*}$, ayant pour forme: 
+    On appelle une suite de puissances une suite $u_n:\mathbb{N} \rightarrow \mathbb{R}$, $\forall n \in \mathbb{N}$, $n \mapsto u(n)$ avec $k \in \mathbb{R}$, $r \in \mathbb{R^*}$, ayant pour forme: 
 
     \[\begin{cases} 
         u_{n+1}=u_n^r \\
@@ -50,11 +51,11 @@
 \end{definition}
 
 \begin{definition}
-    Toute suite $u_n$ étant une suite de puissance, $r$ est appelé raison de la suite.
+    Toute suite $u_n$ étant une suite de puissances, $r$ est appelé raison de la suite.
 \end{definition}
 
 \begin{theorem}
-    Toute suite $u_n$, une suite de puissance de formule de récurrence $u_{n+1}=u_n^r$ avec $u_0=k$ peut s'écrire de la forme $u_n=k^{r^n}$, avec $k \in \mathbb{R}$, $r \in \mathbb{R^*}$.
+    Toute suite $u_n$, une suite de puissances de formule de récurrence $u_{n+1}=u_n^r$ avec $u_0=k$ peut s'écrire de la forme $u_n=k^{r^n}$, avec $k \in \mathbb{R}$, $r \in \mathbb{R^*}$.
 \end{theorem}
 
 \begin{proof}
@@ -78,7 +79,7 @@
 \end{proof} 
 
 \begin{theorem}
-    Toute suite $u_n$, une suite de puissance de formule de récurrence $u_{n+1}=u_n^r$ avec $u_0=k$, et un rang $u_p$, $p \in \mathbb{N}$, peut s'exprimer par: $u_n = u_p^{r^{n-p}}$.
+    Toute suite $u_n$, une suite de puissances de formule de récurrence $u_{n+1}=u_n^r$ avec $u_0=k$, et un rang $u_p$, $p \in \mathbb{N}$, peut s'exprimer par: $u_n = u_p^{r^{n-p}}$.
 \end{theorem}
 
 \begin{proof}
@@ -106,8 +107,61 @@
     \[u_n = u_p^{r^{n-p}} \iff r=\sqrt[n-p]{\frac{\log_{u_p}(u_n)}{\log_{u_p}(u_p)}} \iff r=\sqrt[n-p]{\log_{u_p}(u_n)}\]
 
     Cela fonctionne donc $\forall u_p \in \mathbb{R_{+}^*}\backslash\lbrace{1}\rbrace$ et $\forall u_n \in \mathbb{R_{+}^*}$.
-
-
 \end{proof}
+
+\section*{Les variations des suites de puissances}
+
+Soit une suite $u_n$, une suite de puissances de formule de récurrence $u_{n+1}=u_n^r$ avec $u_0=k$.
+En considérant la méthode générale pour étudier les variations de suites, on trouve que:
+
+    \[u_{n+1}-u_n \iff k^{r^{n+1}}-k^{r^n} \iff k^{r^n}(k^r-1)\]
+
+Et l'étude des variations s'en suit. Voici un tableau résumant les variations possibles en fonction de $k^{r^n}$ et $k^{r^n}-1$. \\
+
+\begin{tabularx}{12cm}{|c|p{1.5cm}|X|}
+    \hline
+    \hfil $r$ & \hfil $k$ & \hfil Variations de $u_n$ \\
+    \hline
+    $r>1$ & $k>1$ & $u_n$ est une suite strictement croissante. \\
+    \hline
+    $r>1$ & $k<0$ & $u_n$ est une suite strictement croissante pour $k$ étant pair et strictement décroissante pour $k$ étant impair. \\
+    \hline
+    $r>1$ & $k=0$ & $u_n$ est une suite constante ($u_n=0$). \\
+    \hline
+    $r>1$ & $k\in]0,1[$ & $u_n$ est une suite décroissante ($\lim_{n \to +\infty}u_n=0$). \\
+    \hline
+    $r>1$ & $k=1$ & $u_n$ est une suite constante ($u_n=1$). \\
+    \hline
+    $r<0$ & $k>1$ & $u_n$ n'est pas une suite monotone. \\
+    \hline
+    $r<0$ & $k<0$ & $u_n$ n'est pas une suite monotone ($u_n \in \mathbb{C}$ si $r \in ]-1,0[ \implies$ $u_n$ n'est pas continue sur $\mathbb{R}$). \\
+    \hline
+    $r<0$ & $k=0$ & $u_n$ n'est pas une suite monotone ni continue sur $\mathbb{R}$ ($u_n \in \mathbb{C}$, $u_n=0$ pour $n$ étant pair). \\
+    \hline
+    $r<0$ & $k\in]0,1[$ & $u_n$ n'est pas une suite monotone. \\
+    \hline
+    $r<0$ & $k=1$ & $u_n$ est une suite constante ($u_n=1$). \\
+    \hline
+    $r\in]0,1[$ & $k>1$ & $u_n$ est une suite décroissante ($\lim_{n \to +\infty}u_n=1$). \\
+    \hline
+    $r\in]0,1[$ & $k<0$ & $u_n$ n'est pas une suite monotone ni continue sur $\mathbb{R}$ ($u_n \in \mathbb{C}$). \\
+    \hline
+    $r\in]0,1[$ & $k=0$ & $u_n$ est une suite constante ($u_n=0$). \\
+    \hline
+    $r\in]0,1[$ & $k\in]0,1[$ & $u_n$ est une suite croissante ($\lim_{n \to +\infty}u_n=1$). \\
+    \hline
+    $r\in]0,1[$ & $k=1$ & $u_n$ est une suite constante ($u_n=1$). \\
+    \hline
+    $r=1$ & $k>1$ & $u_n$ est une suite constante ($u_n=k$). \\
+    \hline
+    $r=1$ & $k<0$ & $u_n$ est une suite constante ($u_n=k$). \\
+    \hline
+    $r=1$ & $k=0$ & $u_n$ est une suite constante ($u_n=0$). \\
+    \hline
+    $r=1$ & $k\in]0,1[$ & $u_n$ est une suite constante ($u_n=k$). \\
+    \hline
+    $r=1$ & $k=1$ & $u_n$ est une suite constante ($u_n=1$). \\
+    \hline
+\end{tabularx}
 
 \end{document}

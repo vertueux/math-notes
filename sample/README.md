@@ -1,0 +1,1 @@
+Il s'agit de l'échantillon officiel de l'American Mathematical Society. [Cliquez ici](https://www.ams.org/home/page) pour visiter la page officielle.

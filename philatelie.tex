@@ -1,0 +1,325 @@
+%\documentclass[a4paper, 11pt]{article}
+\documentclass[]{amsart}
+
+\usepackage{graphicx}
+\usepackage[french]{babel}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usetikzlibrary{arrows}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{xca}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{$\mathbb{TFJM}$ \\ Philatélie}
+
+\curraddr{}
+%\email{tfjmblv@gmail.com}
+\thanks{}
+\author{Les Mathernelles \\ Lycée Bellevue, Toulouse}
+\address{}
+\curraddr{}
+\email{}
+\thanks{}
+
+\dedicatory{}
+
+\maketitle
+
+\begin{abstract}
+Cet article présente des propositions de réponses aux questions du problème n°1 du concours $\mathbb{TFJM}$. Les méthodes et théorèmes utilisés afin de démontrer les différents résultats obtenus ont majoritairement été le théorème de Pythagore (notamment pour la question , 1.2, et 1.3), les propriétés de la fonction carré (pour la question 1.1), de polygones convexes (question 2) ainsi que la réutilisation des propriétés démontrées auparavant (pour la question 4.1, 4.3 et 6.1).
+    
+\end{abstract}
+
+\section*{Introduction}
+Nous disposons principalement de quatre types de figures géométriques: un rectangle, un disque, un triangle rectangle isocèle, ainsi qu'un polygone convexe. L'objectif est de déterminer le, ainsi que les plus grands carrés inscrits dans ces derniers, en ayant des côtés parallèles aux axes.
+
+\tableofcontents
+
+\newpage
+
+\section*{Définitions}
+\begin{center}
+\underline{Appelons:}
+\end{center}
+% $A_{ab}$, rectangle de largeur $a$ et longueur $b$, avec $ (b;a) \in \mathbb{R_{+}^{\ast}}^2$.
+
+$T$, \hspace{2.1cm}triangle rectangle isocèle de côtés égaux de longueur a $\in \mathbb{R_{+}^{\ast}}$.
+
+$A_c$, \hspace{2.0cm}l'aire du plus grand carré inscrit de côté $c \in \mathbb{R_{+}^{\ast}}$
+
+$A_{c'}$, \hspace{1.9cm}second carré plus grand inscrit de côté $c' \in \mathbb{R_{+}^{\ast}}$.
+
+$A_{dis}$, \hspace{1.7cm}aire maximale possible en plaçant deux carrés disjoints.
+
+$A_{lib}$, \hspace{1.8cm}aire maximale issu de l’union de deux carrés.
+
+Équilatéral, \hspace{0.7cm}polygone aux côtés de même longueur.
+
+Équiangle, \hspace{0.9cm}polygone aux angles internes égaux.
+\section*{Notations}
+\begin{center}
+\underline{Notons:}
+\end{center}
+
+$A_x$, \hspace{2.3cm}l'aire du carré de côté $x \in \mathbb{R_{+}^{\ast}}$.
+
+$A_{xy}$, \hspace{2.1cm}rectangle de largeur $x$ et longueur $y$, avec $ (x;y) \in \mathbb{R_{+}^{\ast}}^2$.
+
+\emph{n-gone}, \hspace{1.7cm}polygone convexe régulier à $n \in \mathbb{N_{}^{\ast}}$ côtés et angles.
+
+$\mathbb{R_{+}^{\ast}}$, \hspace{2.2cm}ensemble des nombres réels strictement positifs.
+
+$\mathbb{N_{}^{\ast}} = \{1,2,3,...\}$, \hspace{0.2cm}ensemble des nombres entiers strictement positifs.
+
+\clearpage
+\section*{Question 1.1}
+
+\textbf{Théorème 0.1}. \emph{Soit $(a;b) \in \mathbb{R_{+}^{\ast}}^2$, un carré $A_c$ de côtés c $\in \mathbb{R_{+}^{\ast}}$ et un rectangle $A_{ab}$. Le plus grand carré $A_c$ inscrit dans $A_{ab}$ a pour aire maximale $a^2$ si $a<b$ et $b^2$ si $b<a$.}
+
+\begin{proof}
+Supposons $a<b$ .
+
+Soit un rectangle $A_{ab}$ de longueur et largeur $(b;a) \in \mathbb{R_{+}^{\ast}}^2$ et $c \in ]0;a]$, afin de ne pas dépasser la largeur $a$ (et donc d'obtenir un carré dépassant $A_{ab}$), avec $A_c=c^2$.
+
+Étant donné que la fonction carré est une fonction croissante, nous aurons donc $A_c \in ]0;a^2]$. Or, nous cherchons le maximum, nous aurons donc $A_c=a^2$.\newline
+
+Donc, le plus grand carré $A_c$, de côtés $c \in \mathbb{R_{+}^{\ast}}$ inscrit dans un rectangle $A_{ab}$ de longueur et largeur $(b;a) \in \mathbb{R_{+}^{\ast}}^2$ a une aire maximale correspondant à $a^2$.
+
+On peut raisonner de manière analogue si $b<a$. L'aire maximale sera alors $b^2$.
+\end{proof}
+
+\begin{center}
+\begin{tikzpicture}[line cap=round, line join=round, >=triangle 45, x=1cm, y=1cm, scale=0.8]
+\draw(0,0)--(6,0);
+\draw(6,0)--(6,3);
+\draw(0,3)--(6,3);
+\draw(0,3)--(0,0);
+\draw(0,2)--(1,2);
+\draw(1,2)--(1,3);
+\draw[color=black] (6.246993738313657, 1.5875254169985047) node {$a$};
+\draw[color=black] (3.0250334434208717, 3.271719860999165) node {$b$};
+\draw[color=black] (0.41012808477947044, 2.5071173840471785) node {$A_c$};
+\end{tikzpicture}
+\end{center}
+
+\section*{Question 1.2}
+\textbf{Théorème 0.2}. \emph{Soit $D$ un disque de rayon $r \in \mathbb{R_{+}^{\ast}}$. Soit $A_c$, carré de côté $c \in \mathbb{R_{+}^{\ast}}$. Le plus grand carré $A_c$ inscrit dans $D$ a pour aire $2r^2$.}
+
+\begin{proof}
+Soit \emph{D} un disque de rayon $r \in \mathbb{R_{+}^{\ast}}$ et deux segments $AB$ et $CD$ inscrits dans $D$, avec $(AB \perp CD)$ $=2r$, se coupant au centre de D.
+
+Soit $c = AD\vee AC\vee BD\vee BC \in \mathbb{R_{+}^{\ast}}$ et $CAD$, triangle rectangle isocèle en A. D'après le théorème de Pythagore:
+
+\[(2r)^2=2c^2 \Leftrightarrow c = \sqrt{2}r\]
+
+Soit $A_c$, carré de côtés $c$. 
+
+\[A_c = c^2 \Leftrightarrow A_c = 2r^2\]
+
+Donc, le plus grand carré $A_c$ de côté $c$ inscrit dans un disque de rayon $r$ correspond à $2r^2$.
+
+
+\begin{center}
+\begin{tikzpicture}[line cap=round, line join=round, >=triangle 45, x=1cm, y=1cm, scale=0.5]
+\draw(0, 0) circle (4cm);
+\draw(4, 0)--(-4, 0);
+\draw(-4, 0)--(0, -4);
+\draw(0, -4)--(4, 0);
+\draw(4, 0)--(0, 4);
+\draw(0, 4)--(-4, 0);
+\draw[color=black] (0.1, 0.5) node {$2r$};
+\draw[color=black] (0, 4.5) node {$A$};
+\draw[color=black] (4.5, 0) node {$D$};
+\draw[color=black] (0, -4.5) node {$B$};
+\draw[color=black] (-4.5, 0) node {$C$};
+\draw[color=black] (-2.294530025756926, -2.1889335643630517) node {$c$};
+\end{tikzpicture}
+\end{center}
+\end{proof}
+
+\section*{Question 1.3}
+\textbf{Théorème 0.3}. \emph{Soit $A_c$, carré de côté $c$ et $T$ triangle isocèle rectangle de côté $a$, le plus grand carré $A_c$ inscrit dans $T$ a une aire de $\frac{a^2}{4}$}.
+
+\begin{proof}
+Soit $T$, triangle rectangle isocèle de côtés égaux de longueur $a \in \mathbb{R_{+}^{\ast}}$. Soit $h \in \mathbb{R_{+}^{\ast}}$, la longueur de l'hypoténuse de $T$. D'après le théorème de Pythagore:
+
+\[h^2=2a^2 \Leftrightarrow h=\sqrt{2}a\]
+
+Utilisons la réciproque du théorème de Pythagore afin  de former un nouveau triangle rectangle de côté $c \in \mathbb{R_{+}^{\ast}}$ et $a-c$ ,avec une longueur d'hypoténuse deux fois plus petite que l'initiale, permettant d'isoler $c$, côté du carré $A_c$. Soit:
+
+\[(\frac{\sqrt{2}a}{2})^2 = (a-c)^2+c^2 \Leftrightarrow c = \frac{a}{2}\].
+
+Or, nous cherchons l'aire de $A_c$, carré de côtés $c$, donc $A_c = \frac{a^2}{4}$.\newline
+
+Donc, le plus grand carré $A_c$ inscrit dans un triangle rectangle isocèle de côtés $a$ correspond à un carré d'aire $\frac{a^2}{4}$.
+\end{proof}
+
+\begin{center}
+\begin{tikzpicture}[line cap=round, line join=round, >=triangle 45, x=1cm, y=1cm, scale=0.8]
+\draw (0, 0)--(0, 4);
+\draw (0, 4)--(4, 0);
+\draw (4, 0)--(0, 0);
+\draw (0, 0)--(0, 2);
+\draw (0, 2)--(2, 2);
+\draw (2, 2)--(2, 0);
+\draw (0, 0)--(2, 0);
+\draw (0.2, 0)--(0.2, 0.2);
+\draw (0, 0.2)--(0.2, 0.2);
+\begin{scriptsize}
+\draw[color=black] (-0.3, 2) node {$a$};
+\draw[color=black] (2 , -0.3) node {$a$};
+\draw[color=black] (1, 2.15) node {$c$};
+\draw[color=black] (1.0, 1.0) node {$A_{c}$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+\section*{Question 2}
+
+\textbf{Réponse 0.4} Dans le cas d'un polygone convexe « classique », le nombre de façons d'inscrire un carré de taille maximale inscrit dans ce dernier dépendra de sa forme et emplacements de ces arêtes. En revanche, nous pouvons remarquer qu'au sein des polygones convexes réguliers, il existe le même nombre de façons d'inscrire un tampon maximal que le nombre de \emph{n-gone}, avec $n \in\mathbb{N_{}^{\ast}}$ et $n \geq 3$.
+
+Cela se justifie car ces derniers seront équilatéraux et équiangles, le plus grand carré $A_c$ aura le même nombre de possibilités que $n$.
+
+D'après une propriété des polygones réguliers convexes, pour $n \in\mathbb{N_{}^{\ast}}$ et $n \geq 3$, il existe un polygone régulier convexe à $n$ côtés. Par conséquent, il existe une infinité de polygones réguliers convexes, nous aurons donc une infinité de façons possibles, tant que $n \geq 3$. 
+
+\section*{Question 3}
+\textbf{Conjecture 0.5} Dans tous les cas où l’on essaye d’obtenir l’aire maximale, nous pouvons remarquer que soit $A_{dis} = A_{g}$. Dans le cas où ils ne peuvent pas être égaux, nous pouvons remarquer que $A_{dis} \leq A_g$. Nous pouvons donc émettre une conjecture pour les trois cas de figures géométriques présentées stipulant que $A_{dis} = A_{g}$. De même, $\frac{A_{dis}}{A_g} = 1$.
+
+\section*{Question 4.1}
+\textbf{Théorème 0.6} \emph{Les plus grands carrés $A_{dis}$ inscrits dans un rectangle $A_{ab}$ de longueur et largeur $(b;a)\in\mathbb{R_{+}^{\ast}}^2$ ont pour aire totale maximale $A_{dis}=(b-a)^2+a^2$ si $b<2a$ et $A_{dis}=2a^2$ si $b\geq2a$.}
+
+\begin{proof}
+Soit un rectangle $A_{ab}$ de longueur et largeur $(b;a)\in\mathbb{R_{+}^{\ast}}^2$ et $A_c$ un carré de côté $c\in\mathbb{R_{+}^{\ast}}$. Le plus grand carré $A_c$ inscrit dans $A_{ab}$ a une aire maximale de $a^2$.
+
+Si $b\geq2a$, soit alors $A_{a'b'}$, deuxième rectangle de longueur et largeur $(b-a;a)$ inscrit dans $A_{ab}$. D'après le \textbf{Théorème 0.1}, le plus grand carré $A_{c'}$ inscrit dans $A_{ab}$ a pour aire $a^2$, donc $A_{c'}=a^2$.
+
+Si l'on additionne les deux carrés, nous aurons donc $A_{dis}=2a^2$.
+
+Si $b<2a$, soit alors $A_{a''b''}$, deuxième rectangle de longueur et largeur$(a;b-a)$ inscrit dans $A_{ab}$. Dans un rectangle $A_{cd}$ de largeur $d$, le plus grand carré inscrit a une aire de $d^2$. Donc le plus grand carré $A_{c'}$ inscrit dans $A_{a''b''}$ a une aire égale à $(b-a)^2$. 
+
+En additionnant les deux carrés, nous aurons donc $A_{dis}=(b-a)^2+a^2$.
+
+Soit donc, les deux plus grands carrés $A_{dis}$ inscrit dans dans un rectangle $A_{ab}$ de longueur et largeur $(b;a)\in\mathbb{R_{+}^{\ast}}^2$, auront une aire maximale égale à $a^2$, si $b\geq2a$, et $(b-a)^2+a^2$ si $b<2a$.
+
+
+\begin{tikzpicture}[line cap=round, line join=round, >=triangle 45, x=1cm, y=1cm, scale=0.8]
+\draw(0,0)--(6,0);
+\draw(6,0)--(6,3);
+\draw(0,3)--(6,3);
+\draw(0,3)--(0,0);
+\draw(3,0)--(3,3);
+\draw(3,2)--(4,2);
+\draw(4,2)--(4,3);
+\draw[color=black] (6.246993738313657, 1.5875254169985047) node {$a$};
+\draw[color=black] (3.0250334434208717, 3.271719860999165) node {$b$};
+\draw[color=black] (1.5, 1.5) node {$A_c$};
+\draw[color=black] (3.51012808477947044, 2.5071173840471785) node {$A_{c'}$};
+\end{tikzpicture}
+\hspace{1.7cm}
+\begin{tikzpicture}[line cap=round, line join=round, >=triangle 45, x=1cm, y=1cm, scale=0.8]
+\draw(0,0)--(5,0);
+\draw(5,0)--(5,3);
+\draw(0,3)--(5,3);
+\draw(0,3)--(0,0);
+\draw(3,0)--(3,3);
+\draw(3,2)--(4,2);
+\draw(4,2)--(4,3);
+\draw[color=black] (5.246993738313657, 1.5875254169985047) node {$a$};
+\draw[color=black] (2.5250334434208717, 3.271719860999165) node {$b$};
+\draw[color=black] (1.5, 1.5) node {$A_c$};
+\draw[color=black] (3.51012808477947044, 2.5071173840471785) node {$A_{c'}$};
+\end{tikzpicture}
+\end{proof}
+
+\section*{Question 4.3}
+\textbf{Théorème 0.8} \emph{Les deux plus grands carrés $A_{dis}$ inscrits dans un triangle rectangle isocèle de côté de l'angle droit $a \in \mathbb{R_{+}^{\ast}}$ ont une aire maximale $A_{dis}=\frac{5a^2}{16}$.}
+
+\begin{proof}
+Soit $T$, triangle rectangle isocèle de côtés égaux de longueur $a \in \mathbb{R_{+}^{\ast}}$. Soit $A_c$, carré de côtés $c \in \mathbb{R_{+}^{\ast}}$. Comme nous l'avons vu précédemment (dans la question 1.3), le plus grand carré $A_c$ inscrit dans $T$ a une aire de $\frac{a^2}{4}$.
+
+Or, nous savons donc que nous avons formé deux nouveaux triangles isocèles rectangles de côtés égaux $\frac{a}{2}$. En effet, en divisant la longueur de l'hypoténuse par deux, nous donc divisé la longueur de $a$ par deux.\newline
+
+À partir de cette information, nous pouvons utiliser le \textbf{Théorème 0.3} afin de calculer $A_{c'}$, soit:
+
+\[A_{c'} = \frac{(\frac{a}{2})^2}{4} \Leftrightarrow A_{c'} = \frac{a^2}{16}\]
+
+En effectuant $A_c + A_{c'}$, nous aurons comme aire maximale $A_{dis} = \frac{a^2}{4}+\frac{a^2}{16}$, soit $A_{dis} = \frac{5a^2}{16}$.
+
+Les deux plus grands carrés $A_{dis}$ inscrit dans un triangle rectangle isocèle de côtés égaux de longueur $a \in \mathbb{R_{+}^{\ast}}$ auront donc une aire maximale égale à $\frac{5a^2}{16}$.
+
+\begin{center}
+\begin{tikzpicture}[line cap=round, line join=round, >=triangle 45, x=1cm, y=1cm, scale=0.9]
+\draw (0, 0)--(0, 4);
+\draw (0, 4)--(4, 0);
+\draw (4, 0)--(0, 0);
+
+\draw (0, 0)--(0, 2);
+\draw (0, 2)--(2, 2);
+
+\draw (2, 2)--(2, 0);
+\draw (0, 0)--(2, 0);
+
+
+\draw (0, 3)--(1, 3);
+\draw (1, 2)--(1, 3);
+
+\draw (0.2, 0)--(0.2, 0.2);
+\draw (0, 0.2)--(0.2, 0.2);
+\begin{scriptsize}
+\draw[color=black] (-0.3, 2) node {$a$};
+\draw[color=black] (2 , -0.3) node {$a$};
+\draw[color=black] (1.0, 1.75) node {$c$};
+\draw[color=black] (1.0, 1.0) node {$A_c$};
+\draw[color=black] (0.5, 2.5) node {$A_{c'}$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}\newline
+\end{proof}
+
+\section*{Question 6.1}
+
+\textbf{Théorème 0.9} \emph{Soit $(a;b) \in \mathbb{R_{+}^{\ast}}^2$, un carré $A_c$ de côtés c $\in \mathbb{R_{+}^{\ast}}$ et un rectangle $A_{ab}$. Les deux plus grands carrés superposés $A_{lib}$ ont une aire maximale égale à $ab$.} 
+
+\begin{proof}
+Soit $A_{ab}$, rectangle de largeur $a$ et longueur $b$, avec $ (b;a) \in \mathbb{R_{+}^{\ast}}^2$. Nous ne prendrons que les cas où $b<2a$, dans le cas contraire, il ne serait pas nécessaire de les superposer.
+
+Soit $A_c$, carré de côté $c \in \mathbb{R_{+}^{\ast}}$ inscrit dans $A_{ab}$. D'après le \textbf{Théorème 0.1}, son aire maximale correspond à $a^2$. Comme nous avons le droit de superposer les deux carrés, soit $A_{c'}$, deuxième plus grand carré inscrit dans $A_{ab}$, ayant pour aire maximale $a^2$.
+
+L'aire totale $A_{dis} = 2a^2$. Dans le cas où l'on ne pourrait pas superposer $A_c$ et $A_{c'}$, comme l'explique le \textbf{Théorème 0.6}, alors $b \geq 2a$. Cependant, comme nous le pouvons, nous déduisons que nous pourrons former deux carrés superposés $A_{lib}$ ayant une aire correspondante à celle de $A_{ab}$, soit $ab$.\newline
+
+Les deux plus grands carrés superposés $A_{lib}$ inscrit dans un rectangle de longueur et largeur $(b;a)\in \mathbb{R_{+}^{\ast}}^2$ on donc une aire maximale égale à $ab$.
+
+\begin{center}
+\begin{tikzpicture}[line cap=round, line join=round, >=triangle 45, x=1cm, y=1cm, scale=0.8]
+\draw(0,0)--(5,0);
+\draw(5,0)--(5,3);
+\draw(0,3)--(5,3);
+
+\draw(0,3)--(0,0);
+\draw(3,0)--(3,3);
+\draw(2.25,0)--(2.25,3);
+
+\draw[color=black] (5.246993738313657, 1.5875254169985047) node {$a$};
+\draw[color=black] (2.5250334434208717, 3.271719860999165) node {$b$};
+\draw[color=black] (1.5, 1.5) node {$A_c$};
+\draw[color=black] (3.7, 1.5) node {$A_{c'}$};
+\end{tikzpicture}
+\end{center}
+
+\end{proof}
+\end{document}

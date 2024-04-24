@@ -1,4 +1,4 @@
-\documentclass{amsart}
+\documentclass[a4paper]{amsart}
 
 \usepackage[french]{babel}
 \usepackage{graphicx}
@@ -45,13 +45,13 @@
 
 \begin{document}
 
-\title{Électron libre}
+\title{$\mathbb{TFJM}^2$: Problème $\no5$, Électron libre}
 
 \author{Bellevue (BLV)}
 
 \begin{abstract}
-  Cet article contient la résolution de nombreuses questions du problème \og Électron libre \fg{} de la quatorzième édition du Tournoi Français
-  des Jeunes Mathématiciennes et Mathématiciens. La résolution de problème est composé de théorèmes et conjectures énoncés à la suite.
+  Cet article contient la résolution de nombreuses questions du problème n\textsuperscript{o}5: \og Électron libre \fg{} de la quatorzième édition du Tournoi Français
+  des Jeunes Mathématiciennes et Mathématiciens. La tentative de résolution du problème est composé de théorèmes et conjectures énoncés à la suite.
   Notez que pour la résolution de certains problèmes dans un plan quelconque, nous avons utilisé un plan orthonormé.
 
 \end{abstract}
@@ -65,11 +65,10 @@
 Nicolas joue en disposant d’un canon à électrons immergé dans un champ magnétique constant uniforme. À l'aide de son canon, il peut émettre un électron
 circulant alors à vitesse constante en décrivant un cercle dans le sens trigonométrique, que l'on a supposé de rayon 1.
 
-Il dispose aussi d’un bouton qui permet de faire faire demi-tour à l’électron tel qu'au moment où il appui, la vitesse de l’électron reste la même
+Il dispose aussi d’un bouton qui permet de faire faire demi-tour à l’électron tel qu'au moment où il appuie, la vitesse de l’électron reste la même
 mais progresse dans la direction opposée.
 
-Le coeur du problème réside dans l'optimisation entre la longueur totale de la courbe de la trajectoire, du nombre d'appuis, ainsi que la restriction
-de la taille de la trajectoire selon l'espace.\newpage
+Le coeur du problème réside dans l'optimisation entre la longueur totale de la courbe du trajet, du nombre d'appuis, ainsi que la restriction d'espace.\newpage
 \section{Définitions}
 
 \begin{definition}
@@ -92,6 +91,8 @@ de la taille de la trajectoire selon l'espace.\newpage
     \includegraphics[scale=0.5]{images/sinus.png}
     \caption{Un trajet sinusoïdal.}
   \end{figure}
+
+  Dans le cadre du problème, nous appellerons plus régulièrement \textbf{trajet} tel un trajet circulaire, demi-circulaire ou plus généralement un arc de cercle.
 \end{definition}
 
 \begin{definition}
@@ -99,14 +100,18 @@ de la taille de la trajectoire selon l'espace.\newpage
 \end{definition}
 
 \begin{definition}
-  On appelle $\lambda(A,B)$ la longueur d'une courbe (trajet) dans un plan quelconque reliant deux points $A,B$. Dans le cadre de la courbe d'une fonction $f:\mathbb{R}\longrightarrow \mathbb{R}, x\longmapsto f(x)$,
+  On appelle \textbf{trajet périodique} un trajet étant inscrit dans un polygone admirable, démarrant à un point $A$ et se terminant au point $A$, dans un angle opposé à celui de départ. (dans le cadre de la Question 5).
+\end{definition}
+
+\begin{definition}
+  On appelle $\lambda(A,B)$ la longueur d'une courbe (trajet) dans un plan quelconque reliant deux points $A,B$. Dans le cadre de la courbe d'une fonction continue $f:\mathbb{R}\longrightarrow \mathbb{R}, x\longmapsto f(x)$,
   on considère donc que: \[\lambda(A,B)=\int_{x_A}^{x_B} \sqrt{1+{f^\prime}(x)^2} \,dx\]
 
   (La démonstration est à l'annexe).
 \end{definition}
 
 \begin{definition}
-  On appelle $n_{bouton}$ le nombre de fois que l'on appui sur le bouton permettant de changer le sens trigonométrique de la trajectoire.
+  On appelle $n_{bouton}$ le nombre de fois que l'on appuie sur le bouton permettant de changer le sens du trajet.
 \end{definition}
 
 \begin{definition}
@@ -120,12 +125,12 @@ de la taille de la trajectoire selon l'espace.\newpage
 \end{definition}
 
 \begin{definition}
-  On appelle un \textbf{demi-cercle perpétuel} un trajet composée de plusieurs addition d'$1/2$ circonférence d'un cercle trigonométrique (soit $\pi$) en considérant aussi l'incomplétion du demi-cercle trigonométrique. Voici une illustration ci-dessous
+  On appelle un \textbf{demi-cercle perpétuel} un trajet composée de plusieurs addition d'$1/2$ circonférence d'un cercle trigonométrique (soit $\pi$) en considérant aussi des arcs de cercles. Voici une illustration ci-dessous
 
   \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{images/incomplete_demi_circle.png}
-    \caption{Un demi-cercle perpétuel composé de deux demi-cercle perpétuel complet et d'un dernier demi-cercle incomplet.}
+    \caption{Un demi-cercle perpétuel composé de deux demi-cercle perpétuel complet et d'un dernier demi-cercle incomplet (un arc de cercle).}
   \end{figure}
 \end{definition}
 
@@ -135,7 +140,11 @@ de la taille de la trajectoire selon l'espace.\newpage
 \end{definition}
 
 \begin{definition}
-  On appelle \textbf{distance minimale} la plus petite distance séparant deux points $A,B$ dans un plan quelconque, avec un trajet circulaire (ou de demi-cercles trigonométrique perpétuels). On la note $d_{min}$ avec $d_{min}\in\mathbb{R^+}$ (une longueur étant toujours positive).
+  On appelle \textbf{distance minimale} la plus petite distance séparant deux points $A,B$ dans un plan quelconque, avec un trajet circulaire (ou de demi-cercles perpétuels). On la note $d_{min}$ avec $d_{min}\in\mathbb{R^+}$ (une longueur étant toujours positive).
+\end{definition}
+
+\begin{definition}
+  Pour $k,n\in\mathbb{R}$, on note $k\to n$ afin de signifier que $k$ tend vers $n$.
 \end{definition}
 
 \newpage
@@ -184,7 +193,7 @@ de la taille de la trajectoire selon l'espace.\newpage
   Nous pouvons modéliser $C$ à partir de l'équation modélisant un cercle dans un repère orthonormé. Soit $r,x,y\in\mathbb{R}$ avec $y$ représentant les ordonnés, $x$ les abscisses et $r$ le rayon, tel que:
   \[r^2=y^2+x^2 \Leftrightarrow  y = \sqrt{r^2-x^2}\]
 
-  À partir de cette égalité, nous considérons dans notre cas que $r=1$, car il s'agit du cercle trigonométrique. Nous pouvons définir la fonction $f,f:\mathbb{R}\longrightarrow \mathbb{R}, x\longmapsto \sqrt{1-x^2}, \forall x\in[-1;1]$.
+  À partir de cette égalité, nous considérons dans notre cas que $r=1$, car il s'agit du cercle trigonométrique. Nous pouvons définir la fonction $f,f:\mathbb{R}\longrightarrow [-1;1];  x\longmapsto \sqrt{1-x^2}$ .
 
   Voici une illustration géométrique de la courbe de $f$ ainsi que les points associés:
 
@@ -219,7 +228,7 @@ de la taille de la trajectoire selon l'espace.\newpage
   En comparant les courbes des fonctions $f_1,f_2$ des deux approches, on remarque que: \[f_2(x)=\lvert f_1(x) \rvert\]
 
   Cela peut se justifier par le fait que l'\textbf{Approche 2} est basée sur une fonction $f(x)\geq0, \forall x\in[-1;1]$ car un carré est toujours positif. De plus, on préfèrera l'utilisation de la fonction $f_1$ car, comme $f_1$ et $f_2$
-  modélisent $d_{min}$ selon $d_{abs}$, il n'est pas cohérent de considérer une longueur négative, une longueur quelconque $l\in\mathbb{R^+}$,et dans $\mathbb{R^+}$, $f_1$ et $f_2$ sont semblables. Dans tous les cas, $d_{min},d_{abs}\in\mathbb{R^+}$, donc on peut négliger cette différence.
+  modélisent $d_{min}$ selon $d_{abs}$, il n'est pas cohérent de considérer une longueur négative, une longueur quelconque $l\in\mathbb{R^+}$. Dans $\mathbb{R^+}$, $f_1$ et $f_2$ sont semblables. Dans tous les cas, $d_{min},d_{abs}\in\mathbb{R^+}$, donc on peut négliger cette différence.
 \end{proof}
 
 \begin{theorem}
@@ -246,8 +255,8 @@ de la taille de la trajectoire selon l'espace.\newpage
   En d'autres termes, toutes les valeurs $d_{min}$ n'amèneront pas aussi loin que son diamètre, comme $d_{abs}=2$. Cela laisse donc considérer l'idée d'appuyer sur le bouton à ce maximum afin d'effectuer un nouveau cercle trigonométrique.
   (cela laisse aussi supposer, que par récurrence, il faudra toujours appuyer sur le bouton à la moitié de la circonférence pour progresser efficacement dans le plan).\\
 
-  \textbf{Approche 2}: En se basant plus sur la logique, on remarque bien qu'afin d'amener notre électron le plus loin possible, il faut arrêter le trajet et appuyer sur le bouton
-  au demi-cercle. En effet, si l'on appui au délà de la circonférence, nous effectuons un trajet plus long avec une distance absolue $d_{abs}$ plus courte. Voici une illustration:
+  \textbf{Approche 2}: En se basant plus sur de la logique, on remarque bien qu'afin d'amener notre électron le plus loin possible, il faut arrêter le trajet et appuyer sur le bouton
+  au demi-cercle. En effet, si l'on appuie au délà de la circonférence, nous effectuons un trajet plus long avec une distance absolue $d_{abs}$ plus courte. Voici une illustration:
 
   \begin{figure}[H]
     \centering
@@ -277,7 +286,7 @@ de la taille de la trajectoire selon l'espace.\newpage
   Le problème réside donc dans la question: Il y a t'il un moyen de conformer les points $A$, $C_0, C_1, ... C_n$ et $B$ afin de faire une courbe se rapprochant d'une droite, voire même, est-il possible que $d_{min}\approx d_{abs}$.\\
 
   Connaissant, d'après le \textbf{Théorème 3.2}, qu'il faut appuyer idéalement à la moitié de la circonférence, on peut dors-et-déjà déduire le fait que par récurrence, appuyer perpétuellement à la moitié de la circonférence amènera l'électron le plus loin
-  possible (soit donc former des demi-cercles trigonométrique perpétuels avec un alignement nécessaire entre les centres des cercles associés au tirs). Mais, nous pouvons affirmer ce principe par une autre justification:\\
+  possible (soit donc former des demi-cercles perpétuels avec un alignement nécessaire entre les centres des cercles associés au tirs). Mais, nous pouvons affirmer ce principe par une autre justification:\\
 
   Dans le cas où $n_{bouton}=0$, le \textbf{Théorème 3.1}, démontre la distance $d_{min}$ selon $d_{abs}$ et nous considèrons $d_{min}$ tel un unique demi-cercle trigonométrique.\\
 
@@ -328,16 +337,16 @@ de la taille de la trajectoire selon l'espace.\newpage
     \caption{Représentation du repère avec $d_{abs}=4$.}
   \end{figure}
 
-  On reconnait donc des demi-cercles trigonométrique perpétuels. Si l'on mesure la longueur du trajet de l'électron, nous avons bien $d_{min}=\frac{\pi}{2}+\pi+\frac{\pi}{2}=2\pi$ (résultat notamment en accord avec la réponse à la question 1.a. À noter aussi que la Figure 10 et la Figure 12 illustrent aussi le principe d'un même trajet avec un nombre d'appuis différent).
+  On reconnait donc des demi-cercles perpétuels. Si l'on mesure la longueur du trajet de l'électron, nous avons bien $d_{min}=\frac{\pi}{2}+\pi+\frac{\pi}{2}=2\pi$ (résultat notamment en accord avec la réponse à la question 1.a. À noter aussi que la Figure 10 et la Figure 12 illustrent aussi le principe d'un même trajet avec un nombre d'appuis différent).
 
   Si l'on souhaite aussi avoir un trajet maximal avec le même nombre d'appuis ($n_{bouton}=2$), on préfèrera considérer le point $A$ aux coordonnées $(-1;1)$ et le point $B(6;1)$ avec $d_{abs}=6$ et $d_{min}=3\pi$.
 
-  On considère par la suite des réponses aux questions que $d_{min}$ selon $d_{abs}$ peut-être trouvé à partir de demi-cercles trigonométriques perpétuels.
+  On considère par la suite des réponses aux questions que $d_{min}$ selon $d_{abs}$ peut-être trouvé à partir de demi-cercles perpétuels.
 
 \end{proof}
 
 \begin{theorem}
-  Soit $A,B$ deux points dans un plan quelconque. Il est toujours possible d'atteindre $B$ en partant de $A$ en formant des demi-cercles trigonométrique perpétuels et en pouvant choisir l'orientation initiale.
+  Soit $A,B$ deux points dans un plan quelconque. Il est toujours possible d'atteindre $B$ en partant de $A$ en formant des demi-cercles  perpétuels et en pouvant choisir l'orientation initiale.
 \end{theorem}
 
 \begin{proof}
@@ -378,7 +387,7 @@ On trouve que :
 
 Il doit donc appuyer au minimum sur le bouton à $\lceil \frac{d_{abs}-1}{2} \rceil$ de la distance $AB$.\\
 
-\textbf{Réponse 1.b}: On considère les points $A$ et $B$ dans un plan quelconque et $d_{abs}=AB$ (par définition). Comme nous l'avons affirmé précédement avec le \textbf{Théorème 4.3}, nous considérons la formation de demi-cercles perpétuels comme le trajet amenant l'électron le plus loin avec la distance minimale la plus courte possible. Il ne nous reste plus qu'à s'arranger pour former des demi-cercles perpétuels optimisés selon la distance $d_{abs}$ avec l'orientation du canon de manière optimale.
+\textbf{Réponse 1.b}: On considère les points $A$ et $B$ dans un plan quelconque et $d_{abs}=AB$ (par définition). Comme nous l'avons affirmé précédement avec le \textbf{Théorème 3.3}, nous considérons la formation de demi-cercles perpétuels comme le trajet amenant l'électron le plus loin avec la distance minimale la plus courte possible. Il ne nous reste plus qu'à s'arranger pour former des demi-cercles perpétuels optimisés selon la distance $d_{abs}$ avec l'orientation du canon de manière optimale.
 
 Soit le point $D$ et $C$ tel que $DC=1$ et $CB=1$ (en d'autres termes, $C$ est le centre du cercle trigonométrique passant par $D$ et $B$) avec $A,D,C$ alignés.
 
@@ -410,7 +419,7 @@ En d'autres termes,
 
 \[\alpha=\arccos(\frac{{d_{abs}}^2 -(2\lceil\frac{d_{abs}}{2}\rceil+1)^2-1}{-2(2\lceil\frac{d_{abs}}{2}\rceil+1)})=\arccos(\frac{(2\lceil\frac{d_{abs}}{2}\rceil+1)^2+1 -{d_{abs}}^2}{2(2\lceil\frac{d_{abs}}{2}\rceil+1)})\]
 
-$AD$ répresentant la distance absolue du nombre de demi-cercles trigonométriques complets, on sait qu'à chaque diamètre traversé, on y associe un trajet $d_{min}=\pi$ sur le cercle trigonométrique. On définit donc $d_{demi-cercle}=\frac{AD}{2}\pi=\lceil \frac{d_{abs}}{2} \rceil\pi$, avec $d_{demi-cercle}\in\mathbb{R^+}$ désignant la distance parcourue sur les demi-cercles trigonométriques complets formés à partir de $AD$.
+$AD$ répresentant la distance absolue du nombre de demi-cercles complets, on sait qu'à chaque diamètre traversé, on y associe un trajet $d_{min}=\pi$ sur le cercle trigonométrique. On définit donc $d_{demi-cercle}=\frac{AD}{2}\pi=\lceil \frac{d_{abs}}{2} \rceil\pi$, avec $d_{demi-cercle}\in\mathbb{R^+}$ désignant la distance parcourue sur les demi-cercles complets formés à partir de $AD$.
 
 $\alpha$ étant aussi le trajet circulaire de $D$ à $B$, on trouve comme distance minimale de l'électron pour aller de $A$ à $B$ en trajet circulaire:
 
@@ -424,7 +433,7 @@ Avec $d_{min}$ la distance minimale parcoure par l'électron en fonction de $AB$
 
 \section{Théorèmes pour la Question 2}
 
-À partir de la question 2, nous considérons le canon à électron placé aux abords d'un cercle de rayon $r>0$. L'objectif est que le trajet circulaire de l'électron ne touche pas la bordure du cercle de rayon $r$. Voici une illustration:
+À partir de la question 2, nous considérons le canon à électrons placé aux abords d'un cercle de rayon $r>0$. L'objectif est que le trajet circulaire de l'électron ne touche pas la bordure du cercle de rayon $r$. Voici une illustration:
 
 \begin{figure}[H]
   \centering
@@ -534,7 +543,7 @@ L'égalité avec $n_{bouton}=1$ et $r>\frac{4}{3}$ ne laisse pas dors-et-déjà 
   \caption{Représentation simple des possibilités lorsque $n_{bouton}=1$. $D,E,F,G,H$ sont des points auxquels Nicolas a appuyé sur son bouton. Dans le cas ci-dessous, $r=\frac{4}{3}$.}
 \end{figure}
 
-Avec une simple visualisation des autres cercles que l'on aimerait former à partir de ces trajets, il semble tout de même possible de placer un cercle de rayon $r\leq\frac{4}{3}$. En effet on peut même supposer qu'il soit possible que $r\to1$ (et non pas $r=1$ car dans un tel cas, le trajet touche les bords de $C_r$), avec dans un tel cas,
+Avec une simple visualisation des autres cercles que l'on aimerait former à partir de ces trajets, il semble tout de même possible de placer un cercle de rayon $r\leq\frac{4}{3}$. En effet on peut même supposer qu'il soit possible d'avoir un trajet stable lorsque $r\to1$ (et non pas $r=1$ car dans un tel cas, le trajet touche les bords de $C_r$), avec dans un tel cas,
 le centre du cercle $C_r$ confondu avec le centre du dernier trajet circulaire stable.
 
 Ce principe s'affirme d'autant plus notamment avec le \textbf{Théorème 9.1}.
@@ -610,7 +619,7 @@ Cependant, comme l'explique la \textbf{Conjecture 5.4}, il n'est pas certains qu
   \end{figure}
 
   On comprend donc que lorsque $n=2$, avec la formule trouvé au Théorème précédent, nous trouverions $N=n-2\Leftrightarrow N=0$, mais comme l'illustre la Figure 22, lorsque la distance $d$ entre ces deux points tend vers le diamètre, nous ne pouvons pas assurer
-  le fait que le trajet passe par ces deux points lorsque $r_D>1$.
+  le fait que le trajet passe par ces deux points avec $r_D>1$.
 \end{proof}
 
 \section{Réponse à la Question 3}
@@ -624,9 +633,7 @@ explique que la relation du \textbf{Théorème 7.2} ne marche plus.
 
 \section{Théorèmes pour la Question 4}
 
-\textit{Remarque.} Nous prenons pour $k\in\mathbb{N}\backslash\lbrace{1}\rbrace$, $k$ représentant le nombre de canons (et d'électrons). 
-
-Nous pouvons aussi retraduire l'idée que les électrons arrivent \og au même moment \fg{}, de telle sorte que la longueur de des trajets des divers électrons soit égaux (en considérant aussi l'idée qu'ils progressent tous à une vitesse égale).
+\textit{Remarque.} Nous prenons pour $k\in\mathbb{N}\backslash\lbrace{1}\rbrace$, $k$ représentant le nombre de canons (et d'électrons).
 
 \begin{theorem}
   Il est possible d'amener l'électron n'importe où dans le plan, même avec une orientation du canon fixée.
@@ -675,7 +682,7 @@ Nous pouvons aussi retraduire l'idée que les électrons arrivent \og au même m
   \begin{figure}[H]
     \centering
     \includegraphics[scale=0.205]{images/not_a_multiple_of_pi.png}
-    \caption{Le même trajet que celui des figures du dessus, à l'exception du rajout d'un autre moyen d'atteindre $B$. On note cet autre trajet $T$. Nous avons \[T=\frac{\pi(125°+256.86°+250.65°)}{180°}=\frac{63251\pi}{18000}\] 
+    \caption{Le même trajet que celui des figures du dessus, à l'exception du rajout d'un autre moyen d'atteindre $B$. On note cet autre trajet $T$. Nous avons \[T=\frac{\pi(125°+256.86°+250.65°)}{180°}=\frac{63251\pi}{18000}\approx 11.040\] 
     On comprend que ce nombre n'est pas divisible par $2\pi$.}
   \end{figure}
 
@@ -686,18 +693,42 @@ Nous pouvons aussi retraduire l'idée que les électrons arrivent \og au même m
 \section{Réponse à la Question 4}
 
 
-Un raisonnement quelque peu heuristique sur l'emplacement des électrons nous induit l'idée que Nicolas peut toujours faire en sorte que, après un certain temps, les k électrons se trouvent au
+Un raisonnement sur l'emplacement des électrons nous induit l'idée que Nicolas peut toujours faire en sorte que, après un certain temps, les k électrons se trouvent au
 même endroit au même moment. Selon le \textbf{Théorème 9.1}, Nous savons dors-et-déjà que l'on peut amener l'électron n'importe où, même avec une orientation fixée. Comme l'explique le \textbf{Théorème 9.2}, nous pouvons aussi 
-le retarder comme on le souhaite. On suppose donc que l'on peut toujours faire croiser les électrons au même endroit, au même moment. 
+le retarder. On suppose donc que l'on peut toujours faire croiser les électrons au même endroit, au même moment. 
 
+\section{Théorèmes pour la Question 5}
 
+\textit{Remarque.} Il n'a pas été précisé dans l'énoncé, mais nous prendons des valeurs $\forall M\in\mathbb{N}, M>2$, car nous considérons qu'un segment n'est pas un polygone régulier. 
 
+\begin{theorem}
+    Pour $M=3$, le polygone régulier à $M=
+    3$ côtés dont les sommets sont sur un cercle de rayon $r=1$ est admirable.
+\end{theorem}
 
+\begin{proof}
+    Prenons le cas où le canon est au milieu d'un des côtés composant le polygone régulier à $M$ côtés. Ayant le triangle inscrit dans un cercle de rayon $r=1$, nous avons la formule:
 
+    \[r=\frac{c}{3}\sqrt{3} \Leftrightarrow c=\sqrt{3}r \implies c=\sqrt{3}\]
+    Avec $c\in\mathbb{R^+}$, la longueur des côtés du triangle équilatéral.
 
+    On appelle $B,D,C$ les sommets du triangle équilatéral. Nous avons donc le milieu de $BD=\frac{c}{2}=\frac{\sqrt{3}}{2}$. On appelle $I$ le milieu de $BD$, $O$ le milieu de $BC$ et $P$ le milieu de $DC$. 
 
+    Si l'on souhaite représenter les tangentes sur les arcs de cercles aux points $I,O,P$, nous remarquons que l'angle séparant ces tangentes face aux côtés du triangle $BDC$ sont égaux. En d'autres termes, les angles d’incidence et de réflexion par rapport au arcs de cercles sont les mêmes.
 
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.15]{images/q5_tangentes.png}
+      \caption{Triangle inscrit dans un cercle de rayon $r=1$ avec les tangentes représentées.}
+  \end{figure}
 
+  On en déduit que le trajet démarrant au milieu d'un des côtés peut être un trajet périodique. Cela implique aussi que le polygone 
+  régulier de côtés $M=3$ est admirable, car, peut importe la numérotation attribuée, nous avons trouvé un trajet qui satisfait tous les cas.
+\end{proof}
+
+\section{Réponse à la Question 5}
+
+Actuellement, selon le \textbf{Théorème 11.1}, nous avons trouvé que le polygone régulier à 3 côtés est admirable.
 
 
 
@@ -782,7 +813,7 @@ le retarder comme on le souhaite. On suppose donc que l'on peut toujours faire c
 
   (On ne considère pas la racine négative étant donné qu'une longueur est toujours positive).
 
-  Multiplions par $dx$ au sein de notre égalité afin de faire apparaître $f^\prime(x)$.
+  Factorisons par $(dx)^2$ au sein de notre égalité afin de faire apparaître $f^\prime(x)$.
 
   \[ds = \sqrt{(dx)^2(1+(\frac{df}{dx})^2)} \Leftrightarrow ds = \sqrt{1+(\frac{df}{dx})^2}dx\]
 
@@ -794,13 +825,13 @@ le retarder comme on le souhaite. On suppose donc que l'on peut toujours faire c
 \end{proof}
 
 \begin{theorem}
-  Soit $a,b\in\mathbb{R}$ avec $b>a$. Soit $f,g$ deux fonctions continues sur $]a,b[$ avec $f:\mathbb{R}\longrightarrow \mathbb{R}, x\longmapsto f(x)$ et $g:\mathbb{R}\longrightarrow \mathbb{R}, x\longmapsto g(x)$. Si $f(x)\geq g(x) \forall x\in]a,b[\implies$
+  Soit $a,b\in\mathbb{R}$ avec $b>a$. Soit $f,g$ deux fonctions continues sur $[a,b]$ avec $f:\mathbb{R}\longrightarrow \mathbb{R}, x\longmapsto f(x)$ et $g:\mathbb{R}\longrightarrow \mathbb{R}, x\longmapsto g(x)$. Si $f(x)\geq g(x) \forall x\in[a,b]\implies$
 
   \[\int_{a}^{b}f(x) \,dx \geq \int_{a}^{b}g(x) \,dx\]
 \end{theorem}
 
 \begin{proof}
-  Puisque $f(x)\geq g(x) \forall x\in]a,b[ \implies f(x)-g(x)\geq 0\forall x\in]a,b[ $. Par le théorème fondamental de l’analyse, si $f(x)$ est continue sur $]a,b[$, alors son intégrale $F(b)-F(a)$ sur $]a,b[$ est définie comme :
+  Puisque $f(x)\geq g(x), \forall x\in[a,b] \implies f(x)-g(x)\geq 0\forall x\in[a,b] $. Par le théorème fondamental de l’analyse, si $f(x)$ est continue sur $[a,b]$, alors son intégrale $F(b)-F(a)$ sur $[a,b]$ est définie comme :
   \[F(b)-F(a) = \int_{a}^{b} f(x) \,dx\]
 
   De même, l'intégrale de $g$, $G(b)-G(a)$, est définie comme: \[G(b)-G(a) = \int_{a}^{b} g(x) \,dx\]
@@ -836,11 +867,11 @@ le retarder comme on le souhaite. On suppose donc que l'on peut toujours faire c
 
   \[1 \leq \sqrt{1+f_q{^\prime}(x)^2}\]
 
-  $\forall x \in \mathbb{R}$ car $f_q{^\prime}(x)^2\geq 0 \forall x \in \mathbb{R}$, avec la fonction racine carré étant croissante sur $\mathbb{R}$.
+  $\forall x \in \mathbb{R}$ car $f_q{^\prime}(x)^2\geq 0, \forall x \in \mathbb{R}$, avec la fonction racine carré étant croissante sur $\mathbb{R}$.
 
   \[\int_{x_A}^{x_B}1 \,dx \leq \int_{x_A}^{x_B}\sqrt{1+f_q{^\prime}(x)^2} \,dx\]
 
-  (D'après le \textbf{Théorème 11.2}).
+  (D'après le \textbf{Théorème 13.2}).
 
   Or $\exists x_p$ tel que $f_q(x_p)\ne0 \implies {{f_q}^\prime(x_p)}^2>0$. Par conséquent, on comprend bien que $\int_{x_A}^{x_B}\sqrt{1+f_q{^\prime}(x)^2} \,dx$, étant une somme infinie (la convergence de la somme de Riemann), cette somme doit admettre nécessairement à la valeur $x_p$, $1<\sqrt{1+{f_q{^\prime}(x_p)}^2}$. On en déduit que:
 
